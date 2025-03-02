@@ -38,12 +38,8 @@ st.markdown("---")
 # Input per il nome del file
 file_name = st.text_input("📁 Nome del file (senza estensione):", value="mio_file")
 
-# Tasto "Download" in fondo alla pagina
-if st.button("💾 Download il codice HTML"):
-    if not file_name.strip():
-        st.warning("⚠️ Inserisci un nome valido per il file!")
-    else:
-        st.download_button(label="📥 Scarica il codice HTML",
-                           data=html_code,
-                           file_name=f"{file_name}.html",
-                           mime="text/html")
+# Pulsante di Download direttamente funzionante
+st.download_button(label="📥 Scarica il codice HTML",
+                   data=html_code,
+                   file_name=f"{file_name}.html",
+                   mime="text/html")
