@@ -10,32 +10,14 @@ st.subheader("📝 Scrivi il tuo codice HTML")
 html_code = st_ace(
     value="<h1>Hello, World!</h1>\n<p>Scrivi il tuo codice HTML qui...</p>",
     language="html",
-    theme="monokai",  # Cambia con: "monokai", "solarized_light", "dracula", ecc.
+    theme="monokai",  # Puoi cambiare con: "github", "solarized_light", "dracula"
     font_size=14,
     tab_size=4,
     height=400
 )
 
-# Input per il nome del file
-file_name = st.text_input("Nome del file (senza estensione):", value="mio_file")
-
-# Creazione di due colonne per i pulsanti (opzionale per allineamento)
-col1, col2 = st.columns([1, 1])
-
-with col1:
-    # Bottone per eseguire il codice
-    run_code = st.button("▶️ Run")
-
-with col2:
-    # Bottone per scaricare il file
-    if st.button("💾 Download"):
-        if not file_name.strip():
-            st.warning("⚠️ Inserisci un nome valido per il file!")
-        else:
-            st.download_button(label="📥 Scarica il codice HTML",
-                               data=html_code,
-                               file_name=f"{file_name}.html",
-                               mime="text/html")
+# Tasto "Run" per eseguire il codice (posizionato tra editor e anteprima)
+run_code = st.button("▶️ Run")
 
 st.subheader("🌐 Anteprima")
 
@@ -49,3 +31,19 @@ if run_code:
     st.components.v1.html(html_with_style, height=400, scrolling=True)
 else:
     st.info("Premi 'Run' per visualizzare il rendering del codice HTML.")
+
+# Separatore prima del download
+st.markdown("---")
+
+# Input per il nome del file
+file_name = st.text_input("📁 Nome del file (senza estensione):", value="mio_file")
+
+# Tasto "Download" in fondo alla pagina
+if st.button("💾 Download il codice HTML"):
+    if not file_name.strip():
+        st.warning("⚠️ Inserisci un nome valido per il file!")
+    else:
+        st.download_button(label="📥 Scarica il codice HTML",
+                           data=html_code,
+                           file_name=f"{file_name}.html",
+                           mime="text/html")
