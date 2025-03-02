@@ -10,7 +10,7 @@ st.subheader("📝 Scrivi il tuo codice HTML")
 html_code = st_ace(
     value="<h1>Hello, World!</h1>\n<p>Scrivi il tuo codice HTML qui...</p>",
     language="html",
-    theme="dracula",  # Cambia con: "monokai", "solarized_light", "dracula", ecc.
+    theme="monokai",  # Cambia con: "monokai", "solarized_light", "dracula", ecc.
     font_size=14,
     tab_size=4,
     height=400
