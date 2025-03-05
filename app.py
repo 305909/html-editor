@@ -2,11 +2,11 @@ import streamlit as st
 from streamlit_ace import st_ace
 
 
-st.title("Live HTML Editor 📝")
-
 x, y, z = st.columns([1, 2, 1])
 with y:
-    st.image("docs/iiscena-logo.png", width=150)
+    st.image("docs/iiscena-logo.png", width=50)
+    
+st.title("Live HTML Editor 📝")
     
 st.subheader("📝 Write Your HTML Code")
 
