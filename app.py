@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_ace import st_ace
 
 
-x, y, z = st.columns([1, 2, 1])
+x, y, z = st.columns([1, 1, 1])
 with y:
     st.image("docs/iiscena-logo.png", width=50)
     
