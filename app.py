@@ -33,7 +33,7 @@ st.markdown("---")
 
 file_name = st.text_input("📁 File name (without extension):", value="file")
 st.download_button(
-    label="📥 Download HTML Code",
+    label="Download HTML Code",
     data=html_content,
     file_name=f"{file_name}.html",
     mime="text/html"
