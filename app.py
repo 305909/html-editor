@@ -14,7 +14,7 @@ html_content = st_ace(
     height=400
 )
 
-execute_code = st.button("▶ Run")
+execute_code = st.button("▶  Run")
 
 st.subheader("Preview")
 
