@@ -2,9 +2,14 @@ import streamlit as st
 from streamlit_ace import st_ace
 
 
-x, y, z = st.columns([1, 1, 1])
-with y:
-    st.image("docs/logo.png", width=50)
+st.markdown(
+    """
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <img src="docs/logo.png" width="100" alt="Logo">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
     
 st.title("Live HTML Editor 📝")
     
