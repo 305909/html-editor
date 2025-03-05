@@ -1,14 +1,9 @@
 import streamlit as st
 from streamlit_ace import st_ace
-
-
-x, y, z = st.columns([1, 2, 1])
-with y:
-    st.image("docs/logo.png", width=350)
     
-st.title("Live HTML Editor 📝")
+st.title("HTML Editor 🤖")
     
-st.subheader("📝 Write Your HTML Code")
+st.subheader("Write Your HTML Code")
 
 html_content = st_ace(
     value="<h1>Hello, World!</h1>\n<p>Write your HTML code here...</p>",
@@ -19,9 +14,9 @@ html_content = st_ace(
     height=400
 )
 
-execute_code = st.button("▶️ Run")
+execute_code = st.button("▶ Run")
 
-st.subheader("🌐 Preview")
+st.subheader("Preview")
 
 if execute_code:
     rendered_html = f"""
