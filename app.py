@@ -1,45 +1,40 @@
 import streamlit as st
 from streamlit_ace import st_ace
 
-# Titolo della web app
+
 st.title("Live HTML Editor 📝")
+st.subheader("📝 Write Your HTML Code")
 
-st.subheader("📝 Scrivi il tuo codice HTML")
-
-# Editor con evidenziazione della sintassi
-html_code = st_ace(
-    value="<h1>Hello, World!</h1>\n<p>Scrivi il tuo codice HTML qui...</p>",
+html_content = st_ace(
+    value="<h1>Hello, World!</h1>\n<p>Write your HTML code here...</p>",
     language="html",
-    theme="monokai",  # Puoi cambiare con: "github", "solarized_light", "dracula"
+    theme="monokai",
     font_size=14,
     tab_size=4,
     height=400
 )
 
-# Tasto "Run" per eseguire il codice (posizionato tra editor e anteprima)
-run_code = st.button("▶️ Run")
+execute_code = st.button("▶️ Run")
 
-st.subheader("🌐 Anteprima")
+st.subheader("🌐 Preview")
 
-# Esegui il codice solo quando si preme "Run"
-if run_code:
-    html_with_style = f"""
+if execute_code:
+    rendered_html = f"""
     <div style="background-color: white; padding: 20px; min-height: 300px;">
-        {html_code}
+        {html_content}
     </div>
     """
-    st.components.v1.html(html_with_style, height=400, scrolling=True)
+    st.components.v1.html(rendered_html, height=400, scrolling=True)
+    
 else:
-    st.info("Premi 'Run' per visualizzare il rendering del codice HTML.")
+    st.info("Press 'Run' to display the HTML code on screen.")
 
-# Separatore prima del download
 st.markdown("---")
 
-# Input per il nome del file
-file_name = st.text_input("📁 Nome del file (senza estensione):", value="mio_file")
-
-# Pulsante di Download direttamente funzionante
-st.download_button(label="📥 Scarica il codice HTML",
-                   data=html_code,
-                   file_name=f"{file_name}.html",
-                   mime="text/html")
+file_name = st.text_input("📁 File name (without extension):", value="file")
+st.download_button(
+    label="📥 Download HTML Code",
+    data=html_content,
+    file_name=f"{file_name}.html",
+    mime="text/html"
+)
